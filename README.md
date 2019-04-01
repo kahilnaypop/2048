@@ -1,8 +1,9 @@
 # 2048
 Project #1: The Game
-make 2048
 
 Include at least one CSS animation/transition fired by a DOM event
+
+See details in CSS
 
 use css animation when two of the same blocks collide
 more animation when new block appears 
