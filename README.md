@@ -33,3 +33,32 @@ CSS styling for the grid
 CSS animation for generating of new tiles and when tiles collide
 Start screen
 
+
+
+	•	An explanation of the major problems you plan to face while implementing this game.
+Having the tiles add together when they collide.
+Animating the random new tiles
+Having the tiles of different values be different colors
+Declaring a winner. 
+and many more …
+
+	•	An explanation of how you foresee yourself solving the aforementioned problems.
+having the event listener react with the CSS and have the background color change 
+When the random grid location is generated having it trigger an animation outlined in the CSS
+
+
+A README file with:
+	•	A link to your live game deployed on GitHub Pages
+	•	An explanations of the technologies used
+	•	Select wireframes
+	•	Additional information including but not limited to - the approach taken, installation instructions, unsolved problems, etc.
+
+
+
+data - each square will need to have a grid id assigned to it.
+
+presentation -
+views - 
+style - 
+DOM manipulation - 
+
