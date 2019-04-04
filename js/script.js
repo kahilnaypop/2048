@@ -76,18 +76,34 @@ function drawAllCells() {
 
 // creates random cell
 function createCell() {
-    let options = []
-    let i = Math.floor(Math.random() * 4)
-    let j = Math.floor(Math.random() * 4)
-    const getCell = grid[i][j]
+    // tried to make a game over function
+    let freeCell = 0;
+    for (i = 0; i < size; i++) {
+        for (j = 0; j < size; j++) {
+            if (!grid[i][j].value) {
+                freeCell++;
+            }
+        }
+    }
+    if (!freeCell) {
+        gameOver();
+        return;
+    }
+    while (true) {
+        let options = []
+        let i = Math.floor(Math.random() * 4)
+        let j = Math.floor(Math.random() * 4)
+        const getCell = grid[i][j]
 
-    let r = Math.random();
+        let r = Math.random();
 
-    let value = r < 0.5 ? 2 : 4;
-    getCell.value = value
+        let value = r < 0.5 ? 2 : 4;
+        getCell.value = value
 
-    drawCell(getCell)
+        drawCell(getCell)
+        return
 
+    }
 }
 // function keyRight() {
 //     document.addEventListener("keydown", event => {
@@ -156,87 +172,91 @@ function slideCombine(row) {
 
 
 
-
-//  move right 
-// function moveRight() {
-//     slide()
-//     assignRandomCell()
-// }
-
-
 //  move right and updates dom
 function moveRight() {
+    let pastGrid = copy(grid)
     for (let i = 0; i < size; i++) {
+        let currentRow = grid[i]
+        let newArrayOfNumbers = currentRow.map((obj) => {
+            return obj.value
+
+        })
+
+        let slidArray = slide(newArrayOfNumbers)
+
+        for (let j = 0; j < size; j++) {
+            currentRow[j].value = slidArray[j]
+            drawCell(currentRow[j])
+        }
+        createCell()
+        // taking each value in slid array -
+        // updating the current row
+
     }
-    // get all 4 rows in your grid 
-    // map throughj the row of cells so it becomes just the numbers 
-    // pass into slide combine 
-    // with new numbers upadate by updating row 
-    // update all of the cells 
-
-
-    slideCombine()
-
-    // let i, row
-
-    // cycle through i & j to see which tiles are o
-    // for (let i = 0; i < size; i++) {
-    //     row = operate(row)
-
-    // }
-    // for (let j = 0; j < size; i++) {
-    //     if (!cells[i][coll + 1].value) {
-
-    //     grid[i] = slide(grid[i])
-    // }
-
-    createCell()
-
-}
-
-function operate(row) {
-    grid[i] = slide(grid[i])
-    grid[i] = combine(grid[i])
-    grid[i] = slide(gride[i])
-    return row;
 }
 
 
+// get all 4 rows in your grid 
+// map throughj the row of cells so it becomes just the numbers 
+// pass into slide combine 
+// with new numbers upadate by updating row 
+// update all of the cells 
+
+
+// slideCombine()
+
+// let i, row
+
+// cycle through i & j to see which tiles are o
+// for (let i = 0; i < size; i++) {
+//     row = operate(row)
+
+// }
+// for (let j = 0; j < size; i++) {
+//   
+//     createCell()
+
+// }
+
+// function operate(row) {
+//     grid[i] = slide(grid[i])
+//     grid[i] = combine(grid[i])
+//     grid[i] = slide(gride[i])
+//     return row;
+// }
 
 
 
 
 
 //  move left and updates dom
-function moveLeft() {
-    for (let i = 0; i < 4; i++) {
-        grid[i] = slide(grid[i])
-        console.log(grid[i])
-    }
+// function moveLeft() {
+//     for (let i = 0; i < 4; i++) {
+//         grid[i] = slide(grid[i])
+//         console.log(grid[i])
+//     }
 
-}
+// }
 
 //  move up
-function moveUp() {
-    for (let i = 0; i < 4; i++) {
-        grid[i] = slide(grid[i])
-        console.log(grid[i])
-    }
+// function moveUp() {
+//     for (let i = 0; i < 4; i++) {
+//         grid[i] = slide(grid[i])
+//         console.log(grid[i])
+//     }
 
-}
+// }
 
 
 
 //  move down
-function moveDown() {
-    for (let i = 0; i < 4; i++) {
-        grid[i] = slide(grid[i])
-        console.log(grid[i])
-    }
+// function moveDown() {
+//     for (let i = 0; i < 4; i++) {
+//         grid[i] = slide(grid[i])
+//         console.log(grid[i])
+//     }
 
-}
-
-
+// }
 
 
 
@@ -253,9 +273,6 @@ document.addEventListener('keydown', event => {
     }
     // scoreLabel.innerHTML = 'Score : ' + score;
 })
-
-
-
 
 
 
@@ -318,13 +335,16 @@ function drawCell(cell) {
 
 }
 
-        // document.body.addEventListener("keydown", evt => {
-        //     moveRight(evt)
-        // })
+// document.body.addEventListener("keydown", evt => {
+//     moveRight(evt)
+// })
 
 
 
-
+function gameOver() {
+    document.getElementById(table).style.opacity = 0;
+    looser = true;
+}
 
 // generates random location 
 

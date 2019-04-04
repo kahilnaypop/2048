@@ -210,3 +210,6 @@ function combine(row) {
     return row;
 
 }
+
+    <!-- <div id="canvas-bloc"> -->
+        <!-- <canvas id="canvas" width="600" height="600"></canvas> -->
