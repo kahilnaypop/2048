@@ -7,20 +7,46 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Dokdo|Roboto+Mono" rel="stylesheet">
+
+
     <title>2048</title>
 </head>
 
 <body>
-    <h1>2048</h1>
 
-    <p id="score">Score</p>
-    <div id="score-bloc" button>
-        <div class="clear0">Clear</div>
+    <div class="welcome">
+        <img class="child" src="images/welcome.jpg" alt="">
+    </div>
+
+    <div class="head">
+        <h1>2048</h1>
+
+    </div>
+
+    <p id="score">0</p>
+    <div id="score-button" button>
     </div>
 
     </div>
+    <div class="onleft">
+        <button id="playbutton">New Game</button>
 
-    <button id="playbutton">New Game</button>
+    </div>
+
+    <div class="text">
+
+        <p>Use the Arrow keys to slide the tiles together.
+            <br>
+            Two Tiles of the same value will add together
+            <br>
+            Keep sliding untill you reach 2048!
+            <br>
+
+        </p>
+    </div>
+
+
 
     <table id="table">
         <tr>
@@ -55,7 +81,12 @@
         </tr>
     </table>
 
-   <div class="score"></div>
+    <p>The left arrow key doesn't work... i'm sorry, but hey it's my first project
+        <span style='font-size:70px;'>&#129335;</span></p>
+
+    <h1 id="go-label"> Game Over!</h1>
+
+    <div class="score"></div>
 
     <script src="js/script.js"></script>
 
