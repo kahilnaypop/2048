@@ -1,8 +1,12 @@
 # 2048
 
-
+![capture logic](assets/eat.jpg)
 
 Project #1: The Game
+
+Screenshot 2019-04-04 19.35.13.jpg
+
+
 
 Include at least one CSS animation/transition fired by a DOM event
 
@@ -59,5 +63,7 @@ When the random grid location is generated having it trigger an animation outlin
 	•	A link to your live game deployed on GitHub Pages
 	•	An explanations of the technologies used
 	•	Select wireframes
-	•	Additional information including but not limited to - the approach taken, installation instructions, unsolved problems, etc.
+	•	Additional information including but not limited to - the approach taken, installation instructions, unsolved problems, e
+	
+This project is available at (https://twentyfoureight.surge.sh)
 
