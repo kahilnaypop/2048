@@ -1,0 +1,237 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red202\green202\blue202;\red0\green0\blue0;\red23\green23\blue23;
+\red194\green126\blue101;\red109\green109\blue109;\red70\green137\blue204;\red140\green211\blue254;}
+{\*\expandedcolortbl;;\cssrgb\c83137\c83137\c83137;\csgenericrgb\c0\c0\c0;\cssrgb\c11765\c11765\c11765;
+\cssrgb\c80784\c56863\c47059;\cssrgb\c50196\c50196\c50196;\cssrgb\c33725\c61176\c83922;\cssrgb\c61176\c86275\c99608;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\cf3 Two tiles next to each other don\'92t signal game over \
+Still doesn\'92t rotate to the left \
+Score doesn\'92t work \
+\cf2 \
+\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb4 data - each square will need to have a grid id assigned to it.\cb1 \
+\
+\cb4 presentation -\cb1 \
+\cb4 views - \cb1 \
+\cb4 style - \cb1 \
+\cb4 DOM manipulation - \cb1 \
+\
+\
+\
+\cb4 junk code \cb1 \
+\
+\
+\cb4 let tile1\cb1 \
+\cb4 let tile2\cb1 \
+\cb4 let tile3\cb1 \
+\
+\
+\
+\cb4 trying to use class?\cb1 \
+\
+\cb4     // function setup() \{\cb1 \
+\cb4     //     createCanvas(600, 400);\cb1 \
+\cb4     //     tile = new Tile()\cb1 \
+\cb4     // \}\cb1 \
+\
+\
+\cb4 column class\cb1 \
+\
+\cb4 values ()\cb1 \
+\cb4 index ()\cb1 \
+\cb4 slide up \cb1 \
+\cb4 down \cb1 \
+\
+\
+\cb4 class grid \cb1 \
+\cb4 columns: [\cf5 \strokec5 0,0,0,0,\cf2 \strokec2 ]\cb1 \
+\cb4 slide left \cb1 \
+\cb4 right \cb1 \
+\
+\
+\
+\cb4 //     class column \{\cb1 \
+\cb4 //         constructor() \{\cb1 \
+\cb4 //             this.two = 2\cb1 \
+\cb4 //             this.four = 4\cb1 \
+\cb4 //             this.eight = 8\cb1 \
+\cb4 //             this.sixteen = 16\cb1 \
+\cb4 //             this.thirtyTwo = 32\cb1 \
+\cb4 //             this.sixtyFour = 64\cb1 \
+\cb4 //             this.oneTwentyEight = 128\cb1 \
+\cb4 //             this.twoFiftySix = 256\cb1 \
+\cb4 //             this.fiveTwelve = 512\cb1 \
+\cb4 //             this.thousandTwentyFour = 1024\cb1 \
+\cb4 //             this.twoThousandTwentyFour = 2024\cb1 \
+\cb4 //         \}\cb1 \
+\cb4 //         move() \{\cb1 \
+\cb4 //             this.two = this.two + randon(-5, 5)\cb1 \
+\cb4 //             this.four = this.four + randon(-5, 5)\cb1 \
+\cb4 //         \}\cb1 \
+\cb4 //     \}\cb1 \
+\cb4 // \}\cb1 \
+\
+\
+\cb4 trying to assign movements \cb1 \
+\
+\cb4     // move up function \cb1 \
+\cb4     // move right func\cb1 \
+\cb4     // move down func\cb1 \
+\cb4     // move left func\cb1 \
+\
+\cb4     // document.onkeydown = function (event) \{\cb1 \
+\cb4     //     if (!loss) \{\cb1 \
+\cb4     //         if (event.keyCode = 38 moveUp();\cb1 \
+\cb4     //         else if (event.keyCode = 39 moveRight();\cb1 \
+\cb4     //         else if (event.keyCode = 40 moveDown();\cb1 \
+\cb4     //         else if (event.keyCode = 37 moveLeft();\cb1 \
+\cb4     //         Score ...\cb1 \
+\cb4     //     \}\cb1 \
+\cb4     //\cb1 \
+\
+\cb4 \'a0\'a0\'a0\'a0        for (let i = 0; i < 4; i++) \{\cb1 \
+\cb4             for (let j = 0; j < 4; j++) \{\cb1 \
+\cb4                 nofill()\cb1 \
+\cb4                 strokeWeight(2);\cb1 \
+\cb4                 stroke(0);\cb1 \
+\cb4                 ClientRect(i * w, j * w, w, w)\cb1 \
+\cb4                 if (grid[i][j]) !== 0) \{\cb1 \
+\cb4                     textAlign(center.center)\cb1 \
+\cb4                     textSize(64);\cb1 \
+\
+\cb4                 \}\cb1 \
+\
+\cb4             \}\cb1 \
+\cb4         \}\cb1 \
+\cb4     \}\cb1 \
+\
+\
+\
+\
+\cb4 let changeSize = document.getElementById("change-size")\cb1 \
+\cb4 let size = 4\cb1 \
+\
+\cb4    \cf6 \strokec6 <\cf7 \strokec7 p\cf2 \strokec2  \cf8 \strokec8 id\cf2 \strokec2 =\cf5 \strokec5 "size-title"\cf6 \strokec6 >\cf2 \strokec2  Size : \cf6 \strokec6 </\cf7 \strokec7 p\cf6 \strokec6 >\cf2 \cb1 \strokec2 \
+\cb4         \cf6 \strokec6 <\cf7 \strokec7 input\cf2 \strokec2  \cf8 \strokec8 id\cf2 \strokec2 =\cf5 \strokec5 "size"\cf2 \strokec2  \cf8 \strokec8 type\cf2 \strokec2 =\cf5 \strokec5 "number"\cf2 \strokec2  \cf8 \strokec8 value\cf2 \strokec2 =\cf5 \strokec5 "4"\cf6 \strokec6 >\cf2 \cb1 \strokec2 \
+\cb4         \cf6 \strokec6 <\cf7 \strokec7 input\cf2 \strokec2  \cf8 \strokec8 id\cf2 \strokec2 =\cf5 \strokec5 "change-size"\cf2 \strokec2  \cf8 \strokec8 type\cf2 \strokec2 =\cf5 \strokec5 "button"\cf2 \strokec2  \cf8 \strokec8 value\cf2 \strokec2 =\cf5 \strokec5 "ok"\cf6 \strokec6 >\cf2 \cb1 \strokec2 \
+\
+\cb4 /for p5\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf6 \cb4 \strokec6 <\cf7 \strokec7 script\cf2 \strokec2  \cf8 \strokec8 src\cf2 \strokec2 =\cf5 \strokec5 "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"\cf6 \strokec6 ></\cf7 \strokec7 script\cf6 \strokec6 >\cf2 \cb1 \strokec2 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb4 \'a0\'a0\'a0\'a0<script src="https://cdn.jsdelivr.net/gh/molleindustria/p5.play@42cd19c3/lib/p5.play.js"></script>\cb1 \
+\cb4 \'a0\'a0\'a0\'a0\cb1 \
+\cb4 \'a0\'a0\'a0\'a0 ctx.beginPath();\cb1 \
+\
+\
+\cb4 \'a0\'a0\'a0\'a0 txt.fillText(cell.value, cell.x + width / 2, cell.y + width / 2);\cb1 \
+\
+\
+\cb4     let randomNumber = Math.floor(Math.random() * 15);\cb1 \
+\cb4     let firstCell = document.getElementById(randomNumber)\cb1 \
+\cb4     firstCell.setAttribute('data', 2)\cb1 \
+\cb4     let randomNumberTwo = Math.floor(Math.random() * 15);\cb1 \
+\cb4     let secondCell = document.getElementById(randomNumberTwo)\cb1 \
+\cb4     secondCell.setAttribute('data', 2)\cb1 \
+\
+\cb4     drawCell(firstCell, secondCell)\cb1 \
+\cb4     console.log(firstCell, secondCell)\cb1 \
+\cb4 \}\cb1 \
+\
+\cb4 // This should make the number on the left become zero and the new number twice what it was, operating on array itself\cb1 \
+\cb4 function combine(row) \{\cb1 \
+\cb4     if row[\cf5 \strokec5 0\cf2 \strokec2 ] == row[\cf5 \strokec5 1\cf2 \strokec2 ] && row[\cf5 \strokec5 2\cf2 \strokec2 ] == row[\cf5 \strokec5 3\cf2 \strokec2 ] \{\cb1 \
+\cb4         return row;\cb1 \
+\cb4     \} else \{\cb1 \
+\
+\cb4     for (let i = 3; i >= 0; i--) \{\cb1 \
+\cb4         let a = row[i];\cb1 \
+\cb4         let b = row[i - 1]\cb1 \
+\cb4         if (a == b) \{\cb1 \
+\cb4             row[i] = a + b\cb1 \
+\cb4             row[i - 1] = 0\cb1 \
+\
+\cb4             break\cb1 \
+\cb4         \}\cb1 \
+\
+\cb4     \}\cb1 \
+\cb4     return row;\cb1 \
+\
+\cb4 \}\cb1 \
+\
+\cb4     <!-- <div id="canvas-bloc"> -->\cb1 \
+\cb4         <!-- <canvas id="canvas" width="600" height="600"></canvas> -->\cb1 \
+\
+\
+\cb4 // slideCombine()\cb1 \
+\
+\cb4 // let i, row\cb1 \
+\
+\cb4 // cycle through i & j to see which tiles are o\cb1 \
+\cb4 // for (let i = 0; i < size; i++) \{\cb1 \
+\cb4 //     row = operate(row)\cb1 \
+\
+\cb4 // \}\cb1 \
+\cb4 // for (let j = 0; j < size; i++) \{\cb1 \
+\cb4 //   \cb1 \
+\cb4 //     createCell()\cb1 \
+\
+\cb4 // \}\cb1 \
+\
+\cb4 // function operate(row) \{\cb1 \
+\cb4 //     grid[\cf5 \strokec5 i\cf2 \strokec2 ] = slide(grid[\cf5 \strokec5 i\cf2 \strokec2 ])\cb1 \
+\cb4 //     grid[\cf5 \strokec5 i\cf2 \strokec2 ] = combine(grid[\cf5 \strokec5 i\cf2 \strokec2 ])\cb1 \
+\cb4 //     grid[\cf5 \strokec5 i\cf2 \strokec2 ] = slide(gride[\cf5 \strokec5 i\cf2 \strokec2 ])\cb1 \
+\cb4 //     return row;\cb1 \
+\cb4 // \}\cb1 \
+\
+\
+\
+\
+\cb4 .playbutton \{\cb1 \
+\cb4 \'a0\'a0\'a0\'a0-moz-box-shadow: 3px 4px 0px 0px #899599;\cb1 \
+\cb4 \'a0\'a0\'a0\'a0-webkit-box-shadow: 3px 4px 0px 0px #899599;\cb1 \
+\cb4 \'a0\'a0\'a0\'a0box-shadow: 3px 4px 0px 0px #899599;\cb1 \
+\cb4 \'a0\'a0\'a0\'a0background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #bab1ba));\cb1 \
+\cb4 \'a0\'a0\'a0\'a0background:-moz-linear-gradient(top, #ededed 5%, #bab1ba 100%);\cb1 \
+\cb4 \'a0\'a0\'a0\'a0background:-webkit-linear-gradient(top, #ededed 5%, #bab1ba 100%);\cb1 \
+\cb4 \'a0\'a0\'a0\'a0background:-o-linear-gradient(top, #ededed 5%, #bab1ba 100%);\cb1 \
+\cb4 \'a0\'a0\'a0\'a0background:-ms-linear-gradient(top, #ededed 5%, #bab1ba 100%);\cb1 \
+\cb4 \'a0\'a0\'a0\'a0background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);\cb1 \
+\cb4 \'a0\'a0\'a0\'a0filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#bab1ba',GradientType=0);\cb1 \
+\cb4 \'a0\'a0\'a0\'a0background-color:#ededed;\cb1 \
+\cb4 \'a0\'a0\'a0\'a0-moz-border-radius:15px;\cb1 \
+\cb4 \'a0\'a0\'a0\'a0-webkit-border-radius:15px;\cb1 \
+\cb4 \'a0\'a0\'a0\'a0border-radius:15px;\cb1 \
+\cb4 \'a0\'a0\'a0\'a0border:1px solid #d6bcd6;\cb1 \
+\cb4 \'a0\'a0\'a0\'a0display:inline-block;\cb1 \
+\cb4 \'a0\'a0\'a0\'a0cursor:pointer;\cb1 \
+\cb4 \'a0\'a0\'a0\'a0color:#3a8a9e;\cb1 \
+\cb4 \'a0\'a0\'a0\'a0font-family:Arial;\cb1 \
+\cb4 \'a0\'a0\'a0\'a0font-size:17px;\cb1 \
+\cb4 \'a0\'a0\'a0\'a0padding:7px 25px;\cb1 \
+\cb4 \'a0\'a0\'a0\'a0text-decoration:none;\cb1 \
+\cb4 \'a0\'a0\'a0\'a0text-shadow:0px 1px 0px #e1e2ed;\cb1 \
+\cb4 \}\cb1 \
+\
+\
+\cb4 .playbutton:hover \{\cb1 \
+\cb4 \'a0\'a0\'a0\'a0background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bab1ba), color-stop(1, #ededed));\cb1 \
+\cb4 \'a0\'a0\'a0\'a0background:-moz-linear-gradient(top, #bab1ba 5%, #ededed 100%);\cb1 \
+\cb4 \'a0\'a0\'a0\'a0background:-webkit-linear-gradient(top, #bab1ba 5%, #ededed 100%);\cb1 \
+\cb4 \'a0\'a0\'a0\'a0background:-o-linear-gradient(top, #bab1ba 5%, #ededed 100%);\cb1 \
+\cb4 \'a0\'a0\'a0\'a0background:-ms-linear-gradient(top, #bab1ba 5%, #ededed 100%);\cb1 \
+\cb4 \'a0\'a0\'a0\'a0background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);\cb1 \
+\cb4 \'a0\'a0\'a0\'a0filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bab1ba', endColorstr='#ededed',GradientType=0);\cb1 \
+\cb4 \'a0\'a0\'a0\'a0background-color:#bab1ba;\cb1 \
+\cb4 \}\cb1 \
+\
+\
+}
