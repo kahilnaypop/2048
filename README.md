@@ -1,13 +1,16 @@
-# 2048
-
-![capture logic](assets/eat.jpg)
-
-Project #1: The Game
-
-Screenshot 2019-04-04 19.35.13.jpg
+Project #1: 2048 
 
 
 
+
+![capture logic](images/screenshotofgame.jpg)
+
+
+![capture logic](images/welcome.jpg)
+
+
+
+Guidlines...
 Include at least one CSS animation/transition fired by a DOM event
 
 See details in CSS
@@ -15,16 +18,9 @@ See details in CSS
 use css animation when two of the same blocks collide
 more animation when new block appears 
 
-
-
 Use flexbox or CSS grid for layout and positioning
 
 grid 4 by 4 using CSS grid 
-
-
-
-	•	https://github.com/kahilnaypop/2048
-
 
 A description of the game you'll be building with the objective described in non-technical language.
 
@@ -36,6 +32,7 @@ This game 2048 is a grid game where the player must reach the highest number of 
 The player starts with two tiles that are randomly generated and placed on the grid. Both of these tiles will be the number 2. 
 
 The player is then allowed to move left right up or down. Each turn will result in a new tile being randomly placed on the board.  If two of the same number collide then they will merge together and generate a new tile that will be the sum of those two numbers. 
+
 
 	•	Technologies
 Need to select the 4 keys that the player will use using eventListener 
