@@ -4,6 +4,8 @@ window.onload = function () {
     scoreZero();
 }
 
+
+
 let changeScore = document.getElementById("score")
 
 let score = 0
