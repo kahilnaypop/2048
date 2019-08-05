@@ -1,7 +1,10 @@
 # 2048 
 
+<!-- 
+![2048_gif](https://user-images.githubusercontent.com/29616227/62468815-f49c3000-b764-11e9-9d7a-5390deeb1b64.gif) -->
 
-![capture logic](images/screenshotofgame.jpg)
+<img width="852" alt="gif" src="https://user-images.githubusercontent.com/29616227/62468815-f49c3000-b764-11e9-9d7a-5390deeb1b64.gif">
+
 
 
 ![capture logic](images/sample.jpg)
