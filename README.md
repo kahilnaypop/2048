@@ -1,11 +1,11 @@
+<p align="center">
 # 2048 
 
-<p align="center">
 
 <img width="400" height="500" alt="gif" src="https://user-images.githubusercontent.com/29616227/62475739-a5a9c700-b773-11e9-902f-a878bcd55bc3.gif">
 
 
-</p>
+
 
 
 ## Project
@@ -120,4 +120,6 @@ function combine(row) {
 
 
 This project is available a (https://twentyfoureight.surge.sh)
+
+</p>
 
