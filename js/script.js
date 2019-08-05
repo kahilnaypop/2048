@@ -19,10 +19,10 @@ let flipped = false
 let playbutton = document.getElementById('playbutton')
 playbutton.addEventListener('click', () => newGame())
 
-let welcome = document.querySelector('.welcome')
-welcome.addEventListener('click', () => {
-    welcome.style.display = "none";
-})
+// let welcome = document.querySelector('.welcome')
+// welcome.addEventListener('click', () => {
+//     welcome.style.display = "none";
+// })
 
 
 function newGame() {
