@@ -19,11 +19,6 @@ let flipped = false
 let playbutton = document.getElementById('playbutton')
 playbutton.addEventListener('click', () => newGame())
 
-// let welcome = document.querySelector('.welcome')
-// welcome.addEventListener('click', () => {
-//     welcome.style.display = "none";
-// })
-
 
 function newGame() {
     scoreZero()
@@ -51,7 +46,6 @@ function createCells() {
     }
 }
 
-
 function drawAllCells() {
     for (i = 0; i < size; i++) {
         for (j = 0; j < size; j++) {
@@ -59,7 +53,6 @@ function drawAllCells() {
         }
     }
 }
-
 
 function createCell() {
     let freeCell = 0;
@@ -74,7 +67,6 @@ function createCell() {
     if (!freeCell) {
         isGameOver()
         return;
-
     }
     while (true) {
         let i = Math.floor(Math.random() * 4)
@@ -107,8 +99,6 @@ function isGameOver() {
         }
     }
     gameOver();
-
-
 }
 
 
@@ -118,7 +108,6 @@ function slide(row) {
     let zeros = Array(empty).fill(0);
     arr = zeros.concat(arr)
     console.log(arr)
-
     return arr;
 }
 
@@ -130,13 +119,10 @@ function combine(row) {
         if (a == b) {
             row[i] = a + b
             row[i - 1] = 0
-
             break
         }
-
     }
     return row;
-
 }
 
 
@@ -144,23 +130,18 @@ function slideCombine(row) {
     row = slide(row)
     row = combine(row)
     row = slide(row)
-
     return row;
-
 }
-
 
 function flip() {
     for (let i = 0; i < size; i++) {
         grid[i].reverse()
-
     }
 }
 
 function flipTwo(array) {
     for (let i = 0; i < size; i++) {
         array[i].reverse()
-
     }
 }
 
@@ -175,7 +156,6 @@ function transposeArray(array) {
             newArray[j].push(array[i][j]);
         };
     };
-
     return newArray;
 }
 
@@ -183,15 +163,12 @@ function moveRight() {
     moveMatrixTwo(transposeArray(grid));
 }
 
-
-
 function moveMatrixTwo(gridArray) {
     for (let i = 0; i < size; i++) {
         let currentRow = gridArray[i]
         let newArrayOfNumbers = currentRow.map((obj) => {
             return obj.value
         })
-
         let slidArray = slideCombine(newArrayOfNumbers)
         for (let i = 0; i < size; i++) {
             currentRow[i].value = slidArray[i]
@@ -200,7 +177,6 @@ function moveMatrixTwo(gridArray) {
     }
     createCell()
 }
-
 
 function moveMatrix() {
     for (let i = 0; i < size; i++) {
@@ -224,7 +200,6 @@ function moveUp() {
     flip()
 }
 
-
 document.addEventListener('keydown', event => {
     if (event.keyCode === 38) {
         event.preventDefault()
@@ -239,9 +214,44 @@ document.addEventListener('keydown', event => {
         event.preventDefault()
         moveLeft();
     }
-
-
 })
+
+// For mobile swiping 
+// Register touch event handlers
+someElement.addEventListener('touchstart', process_touchstart, false);
+someElement.addEventListener('touchmove', process_touchmove, false);
+someElement.addEventListener('touchcancel', process_touchcancel, false);
+someElement.addEventListener('touchend', process_touchend, false);
+
+// touchstart handler
+function process_touchstart(ev) {
+    // Use the event's data to call out to the appropriate gesture handlers
+    switch (ev.touches.length) {
+      case 1: handle_one_touch(ev); break;
+      case 2: handle_two_touches(ev); break;
+      case 3: handle_three_touches(ev); break;
+      default: gesture_not_supported(ev); break;
+    }
+  }
+
+// Create touchstart handler
+someElement.addEventListener('touchstart', function(ev) {
+    // Iterate through the touch points that were activated
+    // for this element and process each event 'target'
+    for (var i=0; i < ev.targetTouches.length; i++) {
+      process_target(ev.targetTouches[i].target);
+    }
+  }, false);
+
+// touchmove handler
+function process_touchmove(ev) {
+    // Set call preventDefault()
+    ev.preventDefault();
+  }
+
+
+
+
 
 
 function drawCell(cell) {
@@ -317,3 +327,4 @@ function gameOn() {
 function scoreZero() {
     document.querySelector("#score").innerHTML = 0
 }
+
