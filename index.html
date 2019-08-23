@@ -14,48 +14,49 @@
 </head>
 
 <body>
-    <div class="header-container">
-        <h1>2048</h1>
+    <div id="swipe">
+        <div class="header-container">
+            <h1>2048</h1>
+        </div>
+        <table id="table">
+            <tr>
+                <td class="cell" id="0" data="2"></td>
+                <td class="cell" id="1" data="2"></td>
+                <td class="cell" id="2" data="2"></td>
+                <td class="cell" id="3" data="2"></td>
+
+            </tr>
+            <tr>
+                <td class="cell" id="4" data="2"></td>
+                <td class="cell" id="5" data="2"></td>
+                <td class="cell" id="6" data="2"></td>
+                <td class="cell" id="7" data="2"></td>
+            </tr>
+            <tr>
+                <td class="cell" id="8" data="2"></td>
+                <td class="cell" id="9" data="2"></td>
+                <td class="cell" id="10" data="2"></td>
+                <td class="cell" id="11" data="2"></td>
+            </tr>
+            <tr>
+                <td class="cell" id="12" data="2"></td>
+                <td class="cell" id="13" data="2"></td>
+                <td class="cell" id="14" data="2"></td>
+                <td class="cell" id="15" data="2"></td>
+
+            </tr>
+        </table>
+
+        <div id="score-button" button>
+        </div>
+
     </div>
-    <table id="table">
-        <tr>
-            <td class="cell" id="0" data="2"></td>
-            <td class="cell" id="1" data="2"></td>
-            <td class="cell" id="2" data="2"></td>
-            <td class="cell" id="3" data="2"></td>
 
-        </tr>
-        <tr>
-            <td class="cell" id="4" data="2"></td>
-            <td class="cell" id="5" data="2"></td>
-            <td class="cell" id="6" data="2"></td>
-            <td class="cell" id="7" data="2"></td>
-        </tr>
-        <tr>
-            <td class="cell" id="8" data="2"></td>
-            <td class="cell" id="9" data="2"></td>
-            <td class="cell" id="10" data="2"></td>
-            <td class="cell" id="11" data="2"></td>
-        </tr>
-        <tr>
-            <td class="cell" id="12" data="2"></td>
-            <td class="cell" id="13" data="2"></td>
-            <td class="cell" id="14" data="2"></td>
-            <td class="cell" id="15" data="2"></td>
-
-        </tr>
-    </table>
-
-    <div id="score-button" button>
+    <div class="onleft">
+        <button id="playbutton">New Game</button>
     </div>
-    
-</div>
 
-<div class="onleft">
-    <button id="playbutton">New Game</button>
-</div>
-
-<p id="score">0</p>
+    <p id="score">0</p>
 
     <div class="text">
         <p>Use the Arrow keys to slide the tiles together.
@@ -80,7 +81,7 @@
     <div class="score"></div>
 
     <script src="js/script.js"></script>
-
+    </div>
 </body>
 
 </html>

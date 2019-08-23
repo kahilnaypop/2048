@@ -216,38 +216,45 @@ document.addEventListener('keydown', event => {
     }
 })
 
-// For mobile swiping 
-// Register touch event handlers
-someElement.addEventListener('touchstart', process_touchstart, false);
-someElement.addEventListener('touchmove', process_touchmove, false);
-someElement.addEventListener('touchcancel', process_touchcancel, false);
-someElement.addEventListener('touchend', process_touchend, false);
+//make her swipe 
 
-// touchstart handler
-function process_touchstart(ev) {
-    // Use the event's data to call out to the appropriate gesture handlers
-    switch (ev.touches.length) {
-      case 1: handle_one_touch(ev); break;
-      case 2: handle_two_touches(ev); break;
-      case 3: handle_three_touches(ev); break;
-      default: gesture_not_supported(ev); break;
-    }
-  }
+// window.addEventListener('load', function(){
+//     let swipe = document.getElementById('swipe'),
+//     startX,
+//     startY,
+//     dist,
+//     threshold = 150,
+//     allowedTime = 200,
+//     elapsedTime,
+//     startTime
 
-// Create touchstart handler
-someElement.addEventListener('touchstart', function(ev) {
-    // Iterate through the touch points that were activated
-    // for this element and process each event 'target'
-    for (var i=0; i < ev.targetTouches.length; i++) {
-      process_target(ev.targetTouches[i].target);
-    }
-  }, false);
+//     function handleSwipe(isRight) {
+//         if (isRight)
+//         swipe.innerHTML = 'you swiped'
+//         else {
+//             swipe.innerHTML = 'no swipe right'
+//         }
+//     }
 
-// touchmove handler
-function process_touchmove(ev) {
-    // Set call preventDefault()
-    ev.preventDefault();
-  }
+//     swipe.addEventListener('touchstart', function(e) {
+//         swipe.innerHTML = ''
+//         var touchObj = e.changedTouches[0]
+//         dist = 0
+//         startX = touchObj.pageX
+//         startY = touchObj.pageY
+//         startTime = new Date().getTime()
+//         e.preventDefault()
+//     }, false)
+
+//     swipe.addEventListener('touchend', function(e) {
+//         let touchObj = e.changedTouches[0]
+//         dist = touchObj.pagex - startX
+//         elapsedTime = new Date().getTime() - startTime
+//         let swipeRightBol = (elapsedTime <= allowedTime && dist >= threshold && Math.abs(touchObj.pageY - startY) <= 100)
+//         handleSwipe(swipeRightBol)
+//         e.preventDefault()
+//     }, false)
+// }, false)
 
 
 
