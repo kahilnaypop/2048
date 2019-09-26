@@ -120,7 +120,7 @@ function combine(row) {
 
 ```
 
-
-This project is available a (https://twentyfoureight.surge.sh)
+Try it!
+http://2048-yeh.surge.sh/
 
 
