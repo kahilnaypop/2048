@@ -1,24 +1,18 @@
-
 window.onload = function () {
     newGame();
     scoreZero();
 }
 
-
-
+// Global variables
 let changeScore = document.getElementById("score")
-
 let score = 0
 let width = 100
 let fontSize;
 let grid = []
 let size = 4;
 let flipped = false
-
-
 let playbutton = document.getElementById('playbutton')
 playbutton.addEventListener('click', () => newGame())
-
 
 function newGame() {
     scoreZero()
@@ -29,6 +23,7 @@ function newGame() {
     createCell()
 }
 
+// Creates the board
 function cell(row, column) {
     this.value = 0
     this.x = column
@@ -83,6 +78,7 @@ function createCell() {
     }
 }
 
+// Check if game is over
 function isGameOver() {
     gameover = true;
     for (i = 0; i < size; i++) {
@@ -101,16 +97,14 @@ function isGameOver() {
     gameOver();
 }
 
-
+// Moving the grid down
 function slide(row) {
     let arr = row.filter(row => row > 1)
     let empty = (4 - arr.length);
     let zeros = Array(empty).fill(0);
     arr = zeros.concat(arr)
-    console.log(arr)
     return arr;
 }
-
 
 function combine(row) {
     for (let i = 3; i >= 0; i--) {
@@ -125,7 +119,6 @@ function combine(row) {
     return row;
 }
 
-
 function slideCombine(row) {
     row = slide(row)
     row = combine(row)
@@ -133,12 +126,14 @@ function slideCombine(row) {
     return row;
 }
 
+// Moves the board 180 degrees
 function flip() {
     for (let i = 0; i < size; i++) {
         grid[i].reverse()
     }
 }
 
+// Rotates all your numbers 180 degrees
 function flipTwo(array) {
     for (let i = 0; i < size; i++) {
         array[i].reverse()
@@ -148,9 +143,7 @@ function flipTwo(array) {
 function transposeArray(array) {
     let newArray = [];
     for (let i = 0; i < array.length; i++) {
-        newArray.push([]);
-    };
-
+        newArray.push([])};
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array[0].length; j++) {
             newArray[j].push(array[i][j]);
@@ -159,7 +152,12 @@ function transposeArray(array) {
     return newArray;
 }
 
+// Runs transposeArray and then runs moveMatrixTwo with the result.
 function moveRight() {
+    moveMatrixTwo(transposeArray(grid));
+}
+
+function moveLeft() {
     moveMatrixTwo(transposeArray(grid));
 }
 
@@ -178,13 +176,14 @@ function moveMatrixTwo(gridArray) {
     createCell()
 }
 
+// Moves the matrix down
 function moveMatrix() {
     for (let i = 0; i < size; i++) {
         let currentRow = grid[i]
         let newArrayOfNumbers = currentRow.map((obj) => {
             return obj.value
         })
-
+// Call slide and combine to combine numbers
         let slidArray = slideCombine(newArrayOfNumbers)
         for (let i = 0; i < size; i++) {
             currentRow[i].value = slidArray[i]
@@ -200,66 +199,30 @@ function moveUp() {
     flip()
 }
 
+// Event listeners
 document.addEventListener('keydown', event => {
+        //up
     if (event.keyCode === 38) {
         event.preventDefault()
         moveUp()
+
+        //down
     } else if (event.keyCode === 40) {
         event.preventDefault()
         moveMatrix();
+
+        //right
     } else if (event.keyCode === 39) {
         event.preventDefault()
         moveRight();
+
+        //left
     } else if (event.keyCode === 37) {
+        console.log('hello')
         event.preventDefault()
         moveLeft();
     }
 })
-
-//make her swipe 
-
-// window.addEventListener('load', function(){
-//     let swipe = document.getElementById('swipe'),
-//     startX,
-//     startY,
-//     dist,
-//     threshold = 150,
-//     allowedTime = 200,
-//     elapsedTime,
-//     startTime
-
-//     function handleSwipe(isRight) {
-//         if (isRight)
-//         swipe.innerHTML = 'you swiped'
-//         else {
-//             swipe.innerHTML = 'no swipe right'
-//         }
-//     }
-
-//     swipe.addEventListener('touchstart', function(e) {
-//         swipe.innerHTML = ''
-//         var touchObj = e.changedTouches[0]
-//         dist = 0
-//         startX = touchObj.pageX
-//         startY = touchObj.pageY
-//         startTime = new Date().getTime()
-//         e.preventDefault()
-//     }, false)
-
-//     swipe.addEventListener('touchend', function(e) {
-//         let touchObj = e.changedTouches[0]
-//         dist = touchObj.pagex - startX
-//         elapsedTime = new Date().getTime() - startTime
-//         let swipeRightBol = (elapsedTime <= allowedTime && dist >= threshold && Math.abs(touchObj.pageY - startY) <= 100)
-//         handleSwipe(swipeRightBol)
-//         e.preventDefault()
-//     }, false)
-// }, false)
-
-
-
-
-
 
 function drawCell(cell) {
 
@@ -315,7 +278,6 @@ function drawCell(cell) {
         score += cell.value
         countScore(score)
     }
-
 }
 
 function countScore(score) {
@@ -326,7 +288,6 @@ function gameOver() {
     document.querySelector(".winnerdiv").style.opacity = "1"
 }
 
-
 function gameOn() {
     document.querySelector(".winnerdiv").style.opacity = "0"
 }
@@ -334,4 +295,46 @@ function gameOn() {
 function scoreZero() {
     document.querySelector("#score").innerHTML = 0
 }
+
+// This section is for mobile version
+
+// window.addEventListener('load', function(){
+//     let swipe = document.getElementById('swipe'),
+//     startX,
+//     startY,
+//     dist,
+//     threshold = 150,
+//     allowedTime = 200,
+//     elapsedTime,
+//     startTime
+
+//     function handleSwipe(isRight) {
+//         if (isRight)
+//         swipe.innerHTML = 'you swiped'
+//         else {
+//             swipe.innerHTML = 'no swipe right'
+//         }
+//     }
+
+//     swipe.addEventListener('touchstart', function(e) {
+//         swipe.innerHTML = ''
+//         var touchObj = e.changedTouches[0]
+//         dist = 0
+//         startX = touchObj.pageX
+//         startY = touchObj.pageY
+//         startTime = new Date().getTime()
+//         e.preventDefault()
+//     }, false)
+
+//     swipe.addEventListener('touchend', function(e) {
+//         let touchObj = e.changedTouches[0]
+//         dist = touchObj.pagex - startX
+//         elapsedTime = new Date().getTime() - startTime
+//         let swipeRightBol = (elapsedTime <= allowedTime && dist >= threshold && Math.abs(touchObj.pageY - startY) <= 100)
+//         handleSwipe(swipeRightBol)
+//         e.preventDefault()
+//     }, false)
+// }, false)
+
+
 
